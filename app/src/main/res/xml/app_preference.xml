@@ -1,0 +1,37 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:title="@string/preference_title">
+    <PreferenceCategory
+        android:title="@string/general"
+        app:iconSpaceReserved="false"
+        >
+    <SwitchPreferenceCompat
+        android:key="@string/key_draw_overview_polyline"
+        app:iconSpaceReserved="false"
+        android:title="@string/title_draw_overview_polyline"
+        android:summary="@string/summary_draw_overview_polyline"
+        android:defaultValue="true"/>
+
+    <SeekBarPreference
+        android:id="@+id/nearby_seek_bar_preference"
+        android:key="@string/key_nearby_search_radius"
+        android:title="@string/title_nearby_search_radius"
+        android:summary="@string/summary_nearby_search_radius"
+        android:defaultValue="50"
+        app:min="50"
+        android:max="2000"
+        app:showSeekBarValue="true"
+        app:iconSpaceReserved="false"
+        />
+        <SeekBarPreference
+            android:id="@+id/nearby_camera_number_seek_bar_preference"
+            android:key="@string/key_nearby_camera_number"
+            android:title="@string/title_nearby_camera_number"
+            android:summary="@string/summary_nearby_camera_number"
+            android:defaultValue="10"
+            app:min="1"
+            app:showSeekBarValue="true"
+            app:iconSpaceReserved="false"
+            />
+    </PreferenceCategory>
+</PreferenceScreen>

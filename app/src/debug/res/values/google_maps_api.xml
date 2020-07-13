@@ -1,0 +1,6 @@
+<resources>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyABKZWX6UsZg3oJId3s47a7E-rCsH6mTYs</string>
+    <string name="google_maps_rest_api_key" templateMergeStrategy="preserve" translatable="false">AIzaSyBNBrYcTPGIDjhW-HTVUVqyrxRiu8N2mP0</string>
+    <string name="open_route_service_api_key" templateMergeStrategy="preserve" translatable="false">5b3ce3597851110001cf6248d82f0925941d4135a1ce70d373d52748</string>
+
+</resources>

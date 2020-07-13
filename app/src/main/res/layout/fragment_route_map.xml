@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/FragmentRouteMapParent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:transitionGroup="true"
+    tools:context=".fragments.RouteMapFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/RouteMapView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+        <LinearLayout
+            android:id="@+id/MapToolbarLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="10dp"
+            android:orientation="vertical">
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/ShowRouteSearchButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_search_blue_48dp"
+                android:tooltipText="@string/route_settings"
+                android:layout_marginBottom="10dp"/>
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/ShowVideoCameraButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_videocam_white_48dp"
+                android:tooltipText="@string/show_cameras"
+                android:layout_marginBottom="10dp"/>
+            <com.adriano.cartoon.widgets.ToggleFloatingActionButton
+                android:id="@+id/RouteDynamicMode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tooltipText="@string/dynamic_mode"
+                android:src="@drawable/ic_gps_toggle_button"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:layout_marginBottom="10dp"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/RouteSearchLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/border"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/RouteTitleBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:background="#ffffff"
+            android:text="@string/route_search_title"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/border"
+            android:orientation="horizontal"
+            android:paddingTop="8dp">
+
+            <EditText
+                android:id="@+id/RouteStartAddress"
+                android:imeOptions="flagNoExtractUi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:autofillHints="postalAddress,postalCode,addressCountry,extendedAddress"
+                android:hint="@string/search_start_address"
+                android:backgroundTint="@color/colorAccent"
+                android:inputType="text"
+                android:nextFocusRight="@id/RouteEndAddress"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                tools:ignore="NestedWeights" />
+
+            <EditText
+                android:id="@+id/RouteEndAddress"
+                android:imeOptions="flagNoExtractUi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:autofillHints="postalAddress,postalCode,addressCountry,extendedAddress"
+                android:hint="@string/search_destination"
+                android:backgroundTint="@color/colorAccent"
+                android:inputType="text"
+                android:selectAllOnFocus="true"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/border"
+            android:orientation="horizontal">
+
+            <RadioGroup
+                android:id="@+id/RouteSearchMode"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/RadioModeDrive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:button="@drawable/radio_drive_icon"
+                    android:checked="true"
+                    android:text="@string/route_search_type_car" />
+
+                <RadioButton
+                    android:id="@+id/RadioModeWalk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:button="@drawable/radio_walk_icon"
+                    android:text="@string/route_search_type_walk" />
+
+            </RadioGroup>
+
+            <ImageButton
+                android:id="@+id/RoutePerformSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:src="@drawable/ic_search_black_36dp" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/PlacesSuggestionBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/border"
+            android:orientation="vertical"
+            android:scrollbars="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+    </LinearLayout>
+
+
+</FrameLayout>

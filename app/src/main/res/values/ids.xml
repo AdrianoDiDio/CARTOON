@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="geocode_start_address_request_id"></item>
+    <item type="id" name="geocode_end_address_request_id"></item>
+    <item name="RouteFragment" type="id" />
+    <item name="NearbyFragment" type="id" />
+    <item name="SettingsFragment" type="id" />
+    <item name="get_route_request_id" type="id" />
+    <item name="get_camera_from_server" type="id" />
+</resources>
