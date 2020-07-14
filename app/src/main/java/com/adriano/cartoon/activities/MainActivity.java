@@ -6,17 +6,22 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
 import com.adriano.cartoon.BuildConfig;
 import com.adriano.cartoon.R;
+import com.adriano.cartoon.Utils;
+import com.adriano.cartoon.fragments.AndroidThemePreference;
 import com.adriano.cartoon.fragments.NearbyMapFragment;
 import com.adriano.cartoon.fragments.RouteMapFragment;
 import com.adriano.cartoon.fragments.SettingsFragment;
@@ -217,8 +222,14 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         registerReceiver(gpsSwitchStateReceiver, new IntentFilter(LocationManager.PROVIDERS_CHANGED_ACTION));
     }
 
+    private void setThemeFromSharedPreferences() {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        Utils.setThemeFromSharedPreferences(sharedPreferences,getResources());
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setThemeFromSharedPreferences();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         if (BuildConfig.DEBUG) {

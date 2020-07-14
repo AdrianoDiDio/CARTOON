@@ -12,6 +12,8 @@
     <string name="search">Search!</string>
     <string name="settings">Settings</string>
     <string name="preference_title">Settings</string>
+    <string name="title_theme_preference">Theme</string>
+    <string name="summary_theme_preference">Set the application theme.</string>
     <string name="title_draw_overview_polyline">Draw Route</string>
     <string name="summary_draw_overview_polyline">Set whether or not it should draw the route on the map.</string>
     <string name="general">General</string>
@@ -47,6 +49,9 @@
     <string name="dest_address">Destination Address</string>
     <string name="title_nearby_camera_number">Number Of Cameras</string>
     <string name="summary_nearby_camera_number">Select how many cameras you will be able to see while moving on a route.</string>
+    <string name="theme_values_follow_system_settings">Follow System Settings</string>
+    <string name="theme_values_use_light_theme">Light Theme</string>
+    <string name="theme_values_use_dark_theme">Dark Theme</string>
     <!--    <string name="dynamic_mode_on">Dynamic Mode On</string>-->
 <!--    <string name="dynamic_mode_off">Dynamic Mode Off</string>-->
 </resources>
