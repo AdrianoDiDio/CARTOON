@@ -34,6 +34,8 @@
     <string name="permission_not_granted">L\'autorizzazione non è stata concessa...</string>
     <string name="exit_confirm_title">Esci?</string>
     <string name="exit_confirm_message">Sei sicuro di voler uscire?</string>
+    <string name="title_theme_preference">Tema</string>
+    <string name="summary_theme_preference">Seleziona il tema dell\'applicazione</string>
     <string name="title_draw_overview_polyline">Disegna Percorso</string>
     <string name="summary_draw_overview_polyline">Seleziona se bisogna disegnare il percorso sulla mappa oppure no.</string>
     <string name="route_settings">Impostazioni Percorso</string>
@@ -48,4 +50,7 @@
     <string name="dest_address">Indirizzo di Arrivo</string>
     <string name="title_nearby_camera_number">Numero di Videocamere</string>
     <string name="summary_nearby_camera_number">Seleziona quante Videocamere potrai visualizzare mentre ti stati spostando sul percorso.</string>
+    <string name="theme_values_follow_system_settings">Utilizza le impostazioni di sistema</string>
+    <string name="theme_values_use_light_theme">Tema Chiaro</string>
+    <string name="theme_values_use_dark_theme">Tema Scuro</string>
 </resources>

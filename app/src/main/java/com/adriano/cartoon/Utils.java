@@ -3,13 +3,45 @@ package com.adriano.cartoon;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
+import android.os.Build;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.content.ContextCompat;
 
+import com.adriano.cartoon.fragments.AndroidThemePreference;
 import com.google.android.gms.maps.model.LatLng;
 
 public class Utils {
+
+    public static void setThemeFromSharedPreferences(SharedPreferences sharedPreferences, Resources resources) {
+        String[] darkModeValues = resources.getStringArray(R.array.theme_values);
+        String darkModeString;
+        String darkModeValue;
+        AndroidThemePreference androidThemePreference;
+        darkModeString = resources.getString(R.string.key_dark_mode_preference);
+        darkModeValue = sharedPreferences.getString(darkModeString,darkModeValues[0]);
+        androidThemePreference = AndroidThemePreference.valueOf(darkModeValue);
+        switch (androidThemePreference) {
+            case MODE_NIGHT_YES:
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                break;
+            case MODE_NIGHT_NO:
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                break;
+            case MODE_NIGHT_FOLLOW_SYSTEM:
+            case MODE_NIGHT_FOLLOW_BATTERY_SAVER:
+            default:
+                if( Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY);
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+                }
+                break;
+        }
+    }
 
     public static String getLatLng(LatLng position) {
         StringBuilder result = new StringBuilder();

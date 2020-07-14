@@ -5,13 +5,21 @@
         android:title="@string/general"
         app:iconSpaceReserved="false"
         >
+        <ListPreference
+            android:key="@string/key_dark_mode_preference"
+            app:iconSpaceReserved="false"
+            android:defaultValue="MODE_NIGHT_FOLLOW_SYSTEM"
+            android:title="@string/title_theme_preference"
+            android:summary="@string/summary_theme_preference"
+            android:entries="@array/theme_entries"
+            android:entryValues="@array/theme_values"
+            />
     <SwitchPreferenceCompat
         android:key="@string/key_draw_overview_polyline"
         app:iconSpaceReserved="false"
         android:title="@string/title_draw_overview_polyline"
         android:summary="@string/summary_draw_overview_polyline"
         android:defaultValue="true"/>
-
     <SeekBarPreference
         android:id="@+id/nearby_seek_bar_preference"
         android:key="@string/key_nearby_search_radius"

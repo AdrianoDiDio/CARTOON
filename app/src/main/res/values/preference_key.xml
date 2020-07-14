@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="MissingTranslation" >
 
+
+    <string name="key_dark_mode_preference" translatable="false">dark_mode_preference</string>
     <string name="key_draw_overview_polyline" translatable="false">draw_overview_polyline</string>
     <string name="key_nearby_search_radius" translatable="false">nearby_search_radius</string>
     <string name="key_nearby_camera_number" translatable="false">nearby_camera_number</string>
