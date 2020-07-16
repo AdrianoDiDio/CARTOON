@@ -17,7 +17,7 @@
             android:id="@+id/VideoPageTitleBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ffffff"
+            android:background="?colorSurface"
             android:text="@string/video_page_info_title"
             android:textSize="20sp"
             android:textStyle="bold" />

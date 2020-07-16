@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#0277BD</color>
-    <color name="colorOnPrimary">#FFFFFF</color>
-    <color name="colorSecondary">#2962FF</color>
-    <color name="colorSecondaryVariant">#0039CB</color>
-    <color name="colorOnSecondary">#FFFFFF</color>
-    <color name="colorError">#F44336</color>
-    <color name="colorOnError">#FFFFFF</color>
-    <color name="colorSurface">#FFFFFF</color>
-    <color name="colorOnSurface">#212121</color>
-    <color name="colorOnBackground">#212121</color>
+<!--    <color name="colorPrimary">#6200EE</color>-->
+<!--    <color name="colorPrimaryVariant">#3700B3</color>-->
+<!--    <color name="colorPrimaryDark">#3700B3</color>-->
+<!--    <color name="colorAccent">#0277BD</color>-->
+<!--    <color name="colorOnPrimary">#FFFFFF</color>-->
+<!--    <color name="colorSecondary">#2962FF</color>-->
+<!--    <color name="colorSecondaryVariant">#0039CB</color>-->
+<!--    <color name="colorOnSecondary">#FFFFFF</color>-->
+<!--    <color name="colorError">#F44336</color>-->
+<!--    <color name="colorOnError">#FFFFFF</color>-->
+<!--    <color name="colorSurface">#FFFFFF</color>-->
+<!--    <color name="colorOnSurface">#212121</color>-->
+<!--    <color name="colorOnBackground">#212121</color>-->
+
+    <!-- LIGHT THEME COLORS -->
+    <color name="lightThemePrimaryColor">#673AB7</color> <!--Color primary Deep Purple 500-->
+    <color name="lightThemePrimaryDarkColor">#512DA8</color> <!--Color primary Deep Purple 700-->
+    <color name="lightThemePrimaryLightColor">#D1C4E9</color> <!--Color primary Deep Purple 100-->
+    <color name="lightThemeSecondaryColor">#00BCD4</color> <!--Color accent Cyan 500-->
+    <!-- DARK THEME COLORS -->
+    <color name="darkThemePrimaryColor">#512DA8</color> <!--Color primary Purple 200-->
+    <color name="darkThemePrimaryVariant">#4b01d0</color> <!--Color primary Deep Purple 600-->
+    <color name="darkThemeSecondaryColor">#00BCD4</color> <!--Color accent Green 200-->
+    <color name="darkThemeSecondaryVariantColor">#00BCD4</color> <!--Color accent Green 200-->
+    <!--    <color name="bottomNavigationViewBackgroundColor">#6200EE</color>-->
 
 </resources>

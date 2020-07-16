@@ -64,7 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.3"
-            android:background="#ffffff"
+            android:background="?colorSurface"
             android:text="@string/route_search_title"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -85,7 +85,6 @@
                 android:layout_weight="0.3"
                 android:autofillHints="postalAddress,postalCode,addressCountry,extendedAddress"
                 android:hint="@string/search_start_address"
-                android:backgroundTint="@color/colorAccent"
                 android:inputType="text"
                 android:nextFocusRight="@id/RouteEndAddress"
                 android:selectAllOnFocus="true"
@@ -100,7 +99,6 @@
                 android:layout_weight="0.3"
                 android:autofillHints="postalAddress,postalCode,addressCountry,extendedAddress"
                 android:hint="@string/search_destination"
-                android:backgroundTint="@color/colorAccent"
                 android:inputType="text"
                 android:selectAllOnFocus="true"
                 android:singleLine="true" />
