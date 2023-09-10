@@ -14,11 +14,7 @@ import androidx.fragment.app.Fragment;
 
 import com.adriano.cartoon.Camera;
 import com.adriano.cartoon.R;
-import com.google.android.exoplayer2.DefaultLoadControl;
-import com.google.android.exoplayer2.ExoPlaybackException;
-import com.google.android.exoplayer2.LoadControl;
-import com.google.android.exoplayer2.Player;
-import com.google.android.exoplayer2.SimpleExoPlayer;
+import com.google.android.exoplayer2.*;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.hls.HlsMediaSource;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
@@ -32,7 +28,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import timber.log.Timber;
 
-public class VideoPlayerFragment extends Fragment implements View.OnClickListener, Player.EventListener {
+public class VideoPlayerFragment extends Fragment implements View.OnClickListener, Player.Listener {
     private static final String CAMERA_KEY = "Camera";
     private TextView cameraIPTextView;
     private TextView cameraPortTextView;
@@ -60,7 +56,7 @@ public class VideoPlayerFragment extends Fragment implements View.OnClickListene
         if (v.getId() == retryButton.getId()) {
             errorLayout.setVisibility(View.GONE);
             playPauseLayout.setVisibility(View.VISIBLE);
-            simpleExoPlayer.retry();
+            simpleExoPlayer.play();
             return;
         }
     }
@@ -71,11 +67,10 @@ public class VideoPlayerFragment extends Fragment implements View.OnClickListene
         simpleExoPlayer.release();
     }
 
-    //
     @Override
-    public void onPlayerError(ExoPlaybackException error) {
+    public void onPlayerError(PlaybackException error) {
         int errorResourceID;
-        switch (error.type) {
+        switch (error.errorCode) {
             case ExoPlaybackException.TYPE_SOURCE:
                 errorResourceID = R.string.camera_connection_failed;
                 break;
@@ -115,7 +110,7 @@ public class VideoPlayerFragment extends Fragment implements View.OnClickListene
         Uri videoUri = Uri.parse(url);
         MediaSource videoSource =
                 new HlsMediaSource.Factory(dataSourceFactory)
-                        .createMediaSource(videoUri);
+                        .createMediaSource(MediaItem.fromUri(videoUri));
         simpleExoPlayer.prepare(videoSource);
         simpleExoPlayer.setPlayWhenReady(true);
 

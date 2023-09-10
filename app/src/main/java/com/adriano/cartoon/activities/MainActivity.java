@@ -26,6 +26,7 @@ import com.adriano.cartoon.fragments.NearbyMapFragment;
 import com.adriano.cartoon.fragments.RouteMapFragment;
 import com.adriano.cartoon.fragments.SettingsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import timber.log.Timber;
 
@@ -250,13 +251,13 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     @Override
     public void onBackPressed() {
-        AlertDialog.Builder DialogBuilder;
-        DialogBuilder = new AlertDialog.Builder(this);
-        DialogBuilder.setTitle(R.string.exit_confirm_title);
-        DialogBuilder.setMessage(R.string.exit_confirm_message);
-        DialogBuilder.setPositiveButton(android.R.string.ok, (dialog, which) -> super.onBackPressed());
-        DialogBuilder.setNegativeButton(android.R.string.no, (dialog, which) -> dialog.cancel());
-        DialogBuilder.setIcon(android.R.drawable.ic_dialog_alert);
-        DialogBuilder.show();
+        MaterialAlertDialogBuilder materialAlertDialogBuilder;
+        materialAlertDialogBuilder = new MaterialAlertDialogBuilder(this);
+        materialAlertDialogBuilder.setTitle(R.string.exit_confirm_title);
+        materialAlertDialogBuilder.setMessage(R.string.exit_confirm_message);
+        materialAlertDialogBuilder.setPositiveButton(android.R.string.ok, (dialog, which) -> super.onBackPressed());
+        materialAlertDialogBuilder.setNegativeButton(android.R.string.no, (dialog, which) -> dialog.cancel());
+        materialAlertDialogBuilder.setIcon(android.R.drawable.ic_dialog_alert);
+        materialAlertDialogBuilder.show();
     }
 }

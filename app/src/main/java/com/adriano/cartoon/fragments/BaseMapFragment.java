@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Looper;
@@ -33,11 +34,17 @@ import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.GoogleMapOptions;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CircleOptions;
+import com.google.android.gms.maps.model.GroundOverlayOptions;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.libraries.places.api.Places;
+import com.google.maps.android.SphericalUtil;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -383,6 +390,19 @@ public abstract class BaseMapFragment extends Fragment implements OnMapReadyCall
     @Override
     public void onMapReady(GoogleMap googleMap) {
         map = googleMap;
+        if( Utils.isDarkModeEnabled(getContext()) ) {
+            try {
+                boolean success = googleMap.setMapStyle(
+                        MapStyleOptions.loadRawResourceStyle(
+                                getContext(), R.raw.googlemapsdarktheme));
+
+                if (!success) {
+                    Timber.d("Failure when parsing Google Maps Dark Theme.");
+                }
+            } catch (Resources.NotFoundException e) {
+                Timber.d("Google Maps Dark Theme not found.");
+            }
+        }
         map.setOnMapLoadedCallback(this);
     }
 

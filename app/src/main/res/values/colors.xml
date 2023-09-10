@@ -15,15 +15,15 @@
 <!--    <color name="colorOnBackground">#212121</color>-->
 
     <!-- LIGHT THEME COLORS -->
-    <color name="lightThemePrimaryColor">#673AB7</color> <!--Color primary Deep Purple 500-->
-    <color name="lightThemePrimaryDarkColor">#512DA8</color> <!--Color primary Deep Purple 700-->
-    <color name="lightThemePrimaryLightColor">#D1C4E9</color> <!--Color primary Deep Purple 100-->
-    <color name="lightThemeSecondaryColor">#00BCD4</color> <!--Color accent Cyan 500-->
+    <color name="lightThemePrimaryColor">#3F51B5</color> <!--Color primary Blue 500-->
+    <color name="lightThemePrimaryDarkColor">#303F9F</color> <!--Color primary dark Blue 700-->
+    <color name="lightThemePrimaryLightColor">#C5CAE9</color> <!--Color primary light Blue 100-->
+    <color name="lightThemeSecondaryColor">#448AFF</color> <!--Color accent Light Blue 600-->
     <!-- DARK THEME COLORS -->
     <color name="darkThemePrimaryColor">#512DA8</color> <!--Color primary Purple 200-->
     <color name="darkThemePrimaryVariant">#4b01d0</color> <!--Color primary Deep Purple 600-->
-    <color name="darkThemeSecondaryColor">#00BCD4</color> <!--Color accent Green 200-->
-    <color name="darkThemeSecondaryVariantColor">#00BCD4</color> <!--Color accent Green 200-->
+    <color name="darkThemeSecondaryColor">#96CCFF</color> <!--Color accent Green 200-->
+    <color name="darkThemeSecondaryVariantColor">#96CCFF</color> <!--Color accent Green 200-->
     <!--    <color name="bottomNavigationViewBackgroundColor">#6200EE</color>-->
 
 </resources>

@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
 
@@ -13,8 +14,16 @@ import androidx.core.content.ContextCompat;
 
 import com.adriano.cartoon.fragments.AndroidThemePreference;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class Utils {
+
+    public static boolean isDarkModeEnabled(Context context) {
+        int currentNightMode;
+        currentNightMode = context.getResources().getConfiguration().uiMode &
+                Configuration.UI_MODE_NIGHT_MASK;
+        return currentNightMode == Configuration.UI_MODE_NIGHT_YES;
+    }
 
     public static void setThemeFromSharedPreferences(SharedPreferences sharedPreferences, Resources resources) {
         String[] darkModeValues = resources.getStringArray(R.array.theme_values);
@@ -73,12 +82,12 @@ public class Utils {
     }
 
     public static void displayWarning(String message, Context context) {
-        AlertDialog.Builder DialogBuilder;
-        DialogBuilder = new AlertDialog.Builder(context);
-        DialogBuilder.setTitle(R.string.title_warning_dialog);
-        DialogBuilder.setMessage(message);
-        DialogBuilder.setPositiveButton(android.R.string.ok, null);
-        DialogBuilder.setIcon(android.R.drawable.ic_dialog_alert);
-        DialogBuilder.show();
+        MaterialAlertDialogBuilder materialAlertDialogBuilder;
+        materialAlertDialogBuilder = new MaterialAlertDialogBuilder(context);
+        materialAlertDialogBuilder.setTitle(R.string.title_warning_dialog);
+        materialAlertDialogBuilder.setMessage(message);
+        materialAlertDialogBuilder.setPositiveButton(android.R.string.ok, null);
+        materialAlertDialogBuilder.setIcon(android.R.drawable.ic_dialog_alert);
+        materialAlertDialogBuilder.show();
     }
 }
