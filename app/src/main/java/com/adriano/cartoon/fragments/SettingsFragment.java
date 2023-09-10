@@ -12,7 +12,6 @@ import androidx.preference.PreferenceFragmentCompat;
 
 import com.adriano.cartoon.R;
 import com.adriano.cartoon.Utils;
-import com.google.android.exoplayer2.util.Util;
 
 import timber.log.Timber;
 

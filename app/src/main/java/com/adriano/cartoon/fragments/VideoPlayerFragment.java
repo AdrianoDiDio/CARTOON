@@ -12,23 +12,30 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import androidx.media3.common.MediaItem;
+import androidx.media3.common.PlaybackException;
+import androidx.media3.common.Player;
+import androidx.media3.common.util.Log;
+import androidx.media3.common.util.Util;
+import androidx.media3.datasource.DataSource;
+import androidx.media3.datasource.DefaultDataSourceFactory;
+import androidx.media3.exoplayer.DefaultLoadControl;
+import androidx.media3.exoplayer.ExoPlaybackException;
+import androidx.media3.exoplayer.ExoPlayer;
+import androidx.media3.exoplayer.LoadControl;
+import androidx.media3.exoplayer.source.MediaSource;
+import androidx.media3.exoplayer.trackselection.DefaultTrackSelector;
+import androidx.media3.exoplayer.trackselection.TrackSelector;
+import androidx.media3.exoplayer.hls.HlsMediaSource;
+import androidx.media3.ui.PlayerView;
 import com.adriano.cartoon.Camera;
 import com.adriano.cartoon.R;
-import com.google.android.exoplayer2.*;
-import com.google.android.exoplayer2.source.MediaSource;
-import com.google.android.exoplayer2.source.hls.HlsMediaSource;
-import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
-import com.google.android.exoplayer2.trackselection.TrackSelector;
-import com.google.android.exoplayer2.ui.PlayerView;
-import com.google.android.exoplayer2.upstream.DataSource;
-import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
-import com.google.android.exoplayer2.util.Log;
-import com.google.android.exoplayer2.util.Util;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import timber.log.Timber;
 
-public class VideoPlayerFragment extends Fragment implements View.OnClickListener, Player.Listener {
+public class VideoPlayerFragment extends Fragment implements View.OnClickListener,
+        Player.Listener {
     private static final String CAMERA_KEY = "Camera";
     private TextView cameraIPTextView;
     private TextView cameraPortTextView;
@@ -40,7 +47,7 @@ public class VideoPlayerFragment extends Fragment implements View.OnClickListene
     private FloatingActionButton retryButton;
     private Camera camera;
     private PlayerView exoPlayerView;
-    private SimpleExoPlayer simpleExoPlayer;
+    private ExoPlayer simpleExoPlayer;
     private ChildParentPlayerErrorNotification childParentExitNotification;
 
     public static VideoPlayerFragment newInstance(Camera camera) {
@@ -95,7 +102,7 @@ public class VideoPlayerFragment extends Fragment implements View.OnClickListene
     private void addPlayer() {
         TrackSelector trackSelector = new DefaultTrackSelector(getContext());
         LoadControl loadControl = new DefaultLoadControl();
-        simpleExoPlayer = new SimpleExoPlayer.Builder(getContext())
+        simpleExoPlayer = new ExoPlayer.Builder(getContext())
                 .setTrackSelector(trackSelector)
                 .setLoadControl(loadControl)
                 .build();
