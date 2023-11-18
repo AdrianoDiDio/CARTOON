@@ -171,12 +171,13 @@ public class VideoPlayerFragment extends Fragment implements View.OnClickListene
         cameraLatitudeTextView.setText(formatResource(R.string.camera_latitude,camera.position.latitude));
         cameraLongitudeTextView = view.findViewById(R.id.CameraLongitude);
         cameraLongitudeTextView.setText(formatResource(R.string.camera_longitude,camera.position.longitude));
-
         playPauseLayout = view.findViewById(R.id.play_pause_layout);
+
         errorLayout = view.findViewById(R.id.exo_error_layout);
         errorMessageTextView = view.findViewById(R.id.exo_error_text);
         retryButton = view.findViewById(R.id.exo_error_retry_button);
         retryButton.setOnClickListener(this);
+
         exoPlayerView = view.findViewById(R.id.ExoPlayerView);
         addPlayer();
     }
